@@ -387,7 +387,7 @@ export const PLATFORMS: Platform[] = [
   // ────────────────────────────────────────────────────────────────────
   {
     id: "ai-replacement-map",
-    slug: "ai-replacement-map",
+    slug: "civlab-ai-replacement-map",
     name: { en: "AI Replacement Map", zh: "AI 替代地图" },
     hue: "#bd5d2c",
     glyph: "▣",
