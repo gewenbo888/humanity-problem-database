@@ -1,0 +1,91 @@
+@import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --bg: #f6f7f7;
+  --bg-alt: #ecedef;
+  --ink: #171920;
+  --ink-soft: #525763;
+  --accent: #3a6e62;
+  --accent-2: #e7700a;
+  --rule: rgba(23, 25, 32, 0.12);
+  --grid: rgba(23, 25, 32, 0.05);
+}
+
+.dark {
+  --bg: #06070b;
+  --bg-alt: #0c0e13;
+  --ink: #ecedef;
+  --ink-soft: #a8acb6;
+  --accent: #7eb0a4;
+  --accent-2: #ffb340;
+  --rule: rgba(236, 237, 239, 0.16);
+  --grid: rgba(236, 237, 239, 0.04);
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--bg);
+  color: var(--ink);
+  font-family: "Inter", "Source Han Sans SC", system-ui, sans-serif;
+  transition: background-color 600ms ease, color 600ms ease;
+  background-image:
+    linear-gradient(var(--grid) 1px, transparent 1px),
+    linear-gradient(90deg, var(--grid) 1px, transparent 1px);
+  background-size: 32px 32px;
+  background-position: -1px -1px;
+}
+
+::selection { background: var(--accent); color: var(--bg); }
+
+.font-display { font-family: "Space Grotesk", "Source Han Sans SC", system-ui, sans-serif; letter-spacing: -0.01em; }
+.font-mono    { font-family: "JetBrains Mono", ui-monospace, monospace; }
+
+input, textarea, button, select { font-family: inherit; color: inherit; }
+
+.rule { height: 1px; background: var(--rule); }
+.dotted-rule { background-image: radial-gradient(circle, var(--rule) 1px, transparent 1px); background-size: 6px 1px; height: 1px; }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+.no-scrollbar::-webkit-scrollbar { display: none; }
+.no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+
+.terminal {
+  font-family: "JetBrains Mono", ui-monospace, monospace;
+  font-size: 12px;
+  line-height: 1.7;
+}
+
+.kbd {
+  font-family: "JetBrains Mono", ui-monospace, monospace;
+  font-size: 11px;
+  padding: 1px 5px;
+  border: 1px solid var(--rule);
+  border-radius: 3px;
+  background: var(--bg-alt);
+}
+
+.scanline {
+  position: relative;
+  overflow: hidden;
+}
+.scanline::after {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 2px;
+  background: linear-gradient(180deg, transparent, var(--accent), transparent);
+  animation: scan 12s linear infinite;
+  opacity: 0.45;
+  pointer-events: none;
+}
