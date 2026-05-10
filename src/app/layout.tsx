@@ -17,13 +17,15 @@ export const metadata: Metadata = {
   authors: [{ name: "Gewenbo", url: "https://psyverse.fun" }],
   alternates: { canonical: "/", languages: { en: "/", "zh-CN": "/", "x-default": "/" } },
   openGraph: {
+    images: [{ url: "/opengraph-image.png", width: 1200, height: 630, alt: "civlab · Humanity Problem Database · 人类难题数据库" }],
     title: `${self.name.en} · ${self.name.zh}`,
     description: self.oneLine.en,
     url: baseURL + "/",
     siteName: "Psyverse · civlab",
     type: "website", locale: "en_US", alternateLocale: ["zh_CN"],
   },
-  twitter: { card: "summary_large_image", title: `${self.name.en} · ${self.name.zh}`, description: self.oneLine.en },
+  twitter: {
+    images: ["/twitter-image.png"], card: "summary_large_image", title: `${self.name.en} · ${self.name.zh}`, description: self.oneLine.en },
   robots: { index: true, follow: true },
   other: { "theme-color": self.hue },
 };
